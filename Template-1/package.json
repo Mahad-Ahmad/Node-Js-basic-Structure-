@@ -1,0 +1,61 @@
+{
+  "name": "facebookchatbot",
+  "description": "This chatbot is a computer program that can simulate conversation with users on WhatsApp, providing automated customer support or answering frequently asked questions.",
+  "Author": "Arhamsoft Pvt LTD",
+  "license": "MIT",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "cross-env NODE_ENV=development node ./bin/www",
+    "watch": "cross-env NODE_ENV=development nodemon ./bin/wwww",
+    "debug-body": "cross-env NODE_ENV=development DEBUG=chatbot:http:request:body nodemon ./bin/www",
+    "debug-response": "cross-env NODE_ENV=development DEBUG=chatbot:http:response nodemon ./bin/www",
+    "debug-error": "cross-env NODE_ENV=development DEBUG=chatbot:http:error nodemon ./bin/www",
+    "debug-all": "cross-env NODE_ENV=development DEBUG=chatbot:http:* nodemon ./bin/www",
+    "pm2": "cross-env NODE_ENV=production pm2 start ./bin/www --name=facebookchatbot",
+    "pm2-restart": "cross-env NODE_ENV=production pm2 restart all",
+    "pm2-start-max": "cross-env NODE_ENV=production pm2 start ./bin/www -i max",
+    "pm2-stop": "pm2 stop all",
+    "make-resource": "node core/resource.scripts.js",
+    "make-auth": "node core/auth.scripts.js",
+    "make-upload": "node core/upload.scripts.js"
+  },
+  "keywords": [
+    "nodejs",
+    "ArhamSoft",
+    "API",
+    "ArhamSoft NodeJS API"
+  ],
+  "engines": {
+    "npm": ">=8.19.2 <8.19.3",
+    "node": ">=18.12.0 <18.12.1"
+  },
+  "dependencies": {
+    "axios": "^1.2.2",
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "express": "~4.16.1",
+    "express-validator": "^6.14.2",
+    "force": "0.0.3",
+    "form-data": "^4.0.0",
+    "fs": "^0.0.1-security",
+    "http-status": "^1.6.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.2",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.6.0",
+    "passport-facebook": "^3.0.0",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
